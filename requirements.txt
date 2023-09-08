@@ -1,0 +1,3 @@
+notebook
+torchfold @ git+https://github.com/nearai/torchfold
+--index-url  https://pypi.org/project/easydict/ easydict
