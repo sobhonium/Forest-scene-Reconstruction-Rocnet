@@ -9,7 +9,7 @@ So this part includes three tasks:
 
 
 ## Reading .laz 
-
+The .laz files are not readable until you convert them via Cloud Compare software. You can convert them into .pcd (point cloud data type) or .las files. After converting the lidar .laz data into .las you can read .las data through [this notebook](lidar-las-reading.ipynb).
 ## Voxelization
 
 ## .Mat conversion

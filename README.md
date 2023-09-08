@@ -12,11 +12,12 @@ To run it
 or to do this automatically just run  
 ```./install.sh```
 
-You can also use Env.yml file and directly:
+You can also use a conda exporeted Env.yml file and directly create a env for training:
+
 ```conda env create -n <desired-env-name> --file ENV.yml```
 
-Then you can open [the notebook](train_nb-128-32-Forest.ipynb) to run the training.
-The notebook is run sample(s) in ```./data/forest/``` folder. To add/replace data you need to convert your sample data into an Octree-based samples. To do so, I recommend to read [this](./data/preprocessing/readme.md) and based on the instructions prepared put the output data files into ```./data/forest/``` folder and run [the notebook](./train_nb-128-32-Forest.ipynb).
+Then you should open [the notebook](train_nb-128-32-Forest.ipynb) to do the training.
+The notebook is run on sample(s) in ```./data/forest/``` folder (this folder contrains datasets). To add/replace data you should convert your sample data into an Octree-based samples. To do so, I recommend to read [this](./data/preprocessing/readme.md) and based on the instructions prepared put the output data files into ```./data/forest/``` folder and run [the notebook](./train_nb-128-32-Forest.ipynb) afterwards.
 
 
 
