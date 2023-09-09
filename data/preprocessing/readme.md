@@ -1,8 +1,8 @@
 # Data Preprocessing and preparation
-The purpose of preprocssing is to prepare data into a standard cubic form to be readable and understable for the algorith that wants to convert the data into an Octree. So the data should be ```32*32*32```, ```64*64*64```, ...
+The purpose of preprocssing is to prepare data into a standard cubic form to be readable and understable for the algorithm that  converts the data into an Octree. So the 3d data should be of cubic size ```32*32*32```, ```64*64*64```, ...
 
 So this part includes three tasks:
-- Reading .las or .laz data and convert it to a voxel-based equivalance data sample (cubic).
+- Reading .las or .laz data and convert it to a voxel-based equivalent data sample (cubic).
 - Cleaning the data since the .las data provided is not perfect and some leaves are needed to be deleted.
 - Convert the obtained and cleand the into a ```.mat``` file to let the training model read it. The Rocnet turend out that it works only ```.mat``` files.
 
