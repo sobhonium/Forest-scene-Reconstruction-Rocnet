@@ -1,4 +1,6 @@
-# Forest-scene-Reconstruction-Rocnet
+# Forest scene Reconstruction with Rocnet (Octree-based nn)
+![image](./data/images/img1.png)
+
 
 The following instrcutions are tested on conda 23.7.2
 
