@@ -9,15 +9,34 @@ So this part includes three tasks:
 
 
 ## Reading .laz 
-The .laz files are not readable until you convert them via Cloud Compare software. You can convert them into .pcd (point cloud data type) or .las files. After converting the lidar .laz data into .las you can read .las data through [this notebook](lidar-las-reading.ipynb).
+
+
+The ```.laz``` files are not readable until you convert them via Cloud Compare software. You can convert them into ```.pcd``` (point cloud data type) or ```.las``` files. After converting the lidar ```.laz``` data into ```.las``` you can read ```.las``` data through [this notebook](lidar-las-reading.ipynb). To work with laspy module your python is needed to be <3.9. 
+
+
+(recommended) If you convert it to .pcd file format read [this notebook](pcd_read_write.ipynb).
+
+
 ## Voxelization
+For voxelization I recommend using 
+[this notebook](pcd_read_write.ipynb). Save the output file with .mat file extention (if you are using the mentioned notebook that is right in the last cells of the notebook). Let's say the name of file now is ```output.mat```.
 
-## .Mat conversion
-After Voxelization of data they need to be in  .mat format. So, as explained, for dataset creation for forest project:
+**Note:** Sometimes when data is large, reading through .pcd was not possible. I used a mixture of las reading and voxelization to do so in [this notebook](voxelize_large_las.ipynb).
 
-- first I need to have a descent .mat file represeting a tree voxel and save dictionary 'vox' containing 256*256*256 data i.e. dictionary of {"vox", <voxel_name>} in python script in notebooks/DeepLearning_practice/notebooks/volumetric/pointcloud/pcd_read_write.ipynb file. The function that should be run in this notebook is save_mat(occupancy_cube_vox, 'output.mat'), where a voxel shape is enitrely saved in a .mat file.
+**Note:** For processing .las or .laz data you need a machine with high RAM mem. Otherwise, conversion in Cloud compare would crash!
 
-- then I should move to to matlab import and load the imported  .mat file,  extract voxel, and save it 'vox'  and run get_feas_vox(vox,k) :
+**Note:** The large ```.laz``` or ```.las``` data could not be upload to this repo. I already did pcd conversion, voxelization, cleaning and pruning on one sample data and put them in ```./lidar data/forest-sence-sample.pcd```, ```./lidar data/output-dilated-and-manually-rescaled.xyz``` and ```./lidar data/output-dilated-and-manually-rescaled.mat```.
+
+## Cleaning and pruning
+Sometimes data needs to be cleaned (leaves to be removed) or noises be deleted. For that I recommend using [this](prune-leaves.ipynb) or [this](morphology-dilation.ipynb) to apply morpholoy or others to clean it. Sometimes, however, manually detecting and removing noises are needed. 
+
+In some practices you can use classifiers to help you fasten the cleaning process. I used classifer  ```otira_bedrocksemi.prm``` and use it in Cloud Compre to help cleaning the data. This classifer is trained on leaves and trunks and can be helpful.
+
+
+## Octree data structure conversion
+After Voxelization into an output.mat file: 
+
+- you should move to MATLAB and import and load the  .mat file,  extract voxel, and save it 'vox'  and run get_feas_vox(vox,k) :
 
 >> load output.mat
 >> [feas_all,label]=get_feas_vox(vox,256);
@@ -35,23 +54,22 @@ also I need label which is the data label (toilet=0, Desk=1,... in Modelnet10) i
 >> labels = 0 
 >> save ("label_data1.mat", "labels")
 
-I selected 0 as I only have one class right now. It can be other numbers based on the class number of the sample'sinterest.
+I selected 0 as I only have one class right now. It can be other numbers based on the class number of the sample of interest.
 
 
-- The saved files should be put in the ./data/forest and they create only one sample. for the other samples I should do the same and go and save 3 files and come back and put them in this folder.
+- The saved files ```op_data1.mat, label_data1.mat, fea_data1.mat``` should be put in the ```./data/forest``` and they create/represent only one sample. For the other samples you should do the same and go and save 3 files and come back and put them in this folder again.
 
-- In Juncheng notebook, I should add some changes from ./data/train_1 to ./data/forest (already done with a copy of its notebook and did these changes in that notebook).
+- In Juncheng notebook, I should add some changes from ./data/train_1 to ./data/forest (already done with a copy of its notebook and did these changes in that notebook). I already change this in here and no need to change anything right now.
 
 I'm not quite sure about this configuration (saving and loading in matalb) but it is actually the closest to my understanding... (maybe I should ask).
 
-Then I should go to the notebook provided and use the  folder name for that from data/train_1 --->./data/forest (already done)
+Then I should go to the training [notebook](../../train_nb-128-32-Forest.ipynb) provided and change the  folder name for that from ```data/train_1 --->./data/forest``` (already done)
 
-* If you have trouble understanding the shapes see one example from ./data/test_1 and load them on matlab to see their
-size and names inside them and save similarly.
+* also be sure about the file's name since Juncheng is reading files name with these format mentioned and only number at the end of them changed: ```op_data1, op_data2, op_data3,...```
 
-* also be sure about the file's name since Juncheng is reading files name with these format mentioned and only number at the end of them change. 
+* Sometimes you need to zip fea_data1.mat and download it to your local folder and use it (if you're using MATLAB web)! This should be done since the size of fea_data1.mat is changing when I downlod it. Don't know why!!!
 
-* Sometimes you need to zip fea_data1.mat and download it to your local folder and use it. This should be done since the size of fea_data1.mat is changing when I downlod it. Don't know why!
+* Now, you are good to train the Rocnet Model (on the sample data you provided) by running training [notebook](../../train_nb-128-32-Forest.ipynb).
 
 ## Next
 The data put in folder ```./data/forest``` is ready to be trained with a model. The notebook []() can be run and the training model can be obtained.
