@@ -31,7 +31,7 @@ Sometimes data needs to be cleaned (leaves to be removed) or noises be deleted. 
 
 In some practices you can use classifiers to help you fasten the cleaning process. I used classifer  ```otira_bedrocksemi.prm``` and use it in Cloud Compre to help cleaning the data. This classifer is trained on leaves and trunks and can be helpful. Remember that this classifier is only a tool and still you need to augment the file manually...
 
-**Note:** The large ```.laz``` or ```.las``` data could not be upload to this repo. I already did pcd conversion, voxelization, cleaning and pruning on one sample data and put them in ```./lidar data/forest-sence-sample.pcd```, ```./lidar data/output-dilated-and-manually-rescaled.xyz``` and ```./lidar data/output-dilated-and-manually-rescaled.mat```.
+**Note:** The large ```.laz``` or ```.las``` data could not be upload to this repo. I already did pcd conversion, voxelization, cleaning and pruning on one sample data and put them in ```./lidar data/forest-sence-sample.pcd```, ```./lidar data/sample1-cleaned-dilated.xyz``` and ```./lidar data/sample1-cleaned-dilated.mat```.
 
 
 ## Octree data structure conversion

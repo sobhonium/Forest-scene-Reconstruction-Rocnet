@@ -1,6 +1,6 @@
-# Sep 2023
-# SBN
-# Version==1
+__author__ = 'SBN'
+__date__ = 'August 2023'
+
 
 import numpy as np
 from scipy.io import savemat
@@ -45,7 +45,7 @@ def read_point_cloud(point_cloud_path):
     '''read xyz file file and returns the points poistions.
     The indices of points are returned'''
     pointcloud = []
-    with open('output2.xyz') as f:
+    with open(point_cloud_path) as f:
         lines = f.readlines()
         for line in lines:
 
