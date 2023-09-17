@@ -42,6 +42,8 @@ After Voxelization into an output.mat file:
 >> load output.mat
 >> [feas_all,label]=get_feas_vox(vox,256);
 
+**Notice**: The MATLAB functions written/put by Juncheng can be downloaded from [here](https://github.com/ljc91122/RocNet/tree/main/MATLAB).
+
 - By now, I have returned [feas_all,label]=get_feas_vox(vox,k)  
 (I guess Juncheng meant  ops instead of label (run ops=label to assign). 
 
