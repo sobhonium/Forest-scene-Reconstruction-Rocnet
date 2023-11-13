@@ -25,7 +25,7 @@ The notebook is run on sample(s) in ```./data/forest/``` folder (this folder con
 
 
 ## Note
-If you want to avoid using MATLAB (just using python for all the generating/reconstruction of data) use [this](./Python Version) instead. It's files and functions are edited to work with python totally.
+If you want to avoid using MATLAB (just using python for all the generating/reconstruction of data) use [**./Python Version**](./Python%20Version) folder instead. It's files and functions are edited to work with python totally.
 
 ## Resources
 - Rocnet notebook https://github.com/ljc91122/RocNet
