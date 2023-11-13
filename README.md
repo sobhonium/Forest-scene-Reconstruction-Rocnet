@@ -24,6 +24,9 @@ Then you should open [the notebook](train_nb-128-32-Forest.ipynb) to do the trai
 The notebook is run on sample(s) in ```./data/forest/``` folder (this folder contains datasets). To add/replace data you should convert your sample data into an Octree-based samples. To do so, I recommend to read [this](./data/preprocessing/readme.md) and based on the instructions prepared put the output data files into ```./data/forest/``` folder and run [the notebook](./train_nb-128-32-Forest.ipynb) afterwards.
 
 
+## Note
+If you want to avoid using MATLAB (just using python for all the generating/reconstruction of data) use [this](/RocNet-newV-pythonConversion) instead. It's files and functions are edited to work with python totally.
+
 ## Resources
 - Rocnet notebook https://github.com/ljc91122/RocNet
 - https://ljc91122.github.io/publications/rocnet-cviu.pdf

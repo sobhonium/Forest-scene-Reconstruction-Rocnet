@@ -1,0 +1,23 @@
+
+- You need to use old version of pytorch like 1.12.1:
+> conda install pytorch=1.12.1 -c pytorch
+Source: 
+https://pytorch.org/get-started/previous-versions/
+
+- You should add         "leaf_code_size":16 to utils.py
+
+- Remove all .cuda() from ROcNetmodel_32.py fil.
+
+- As torchfold is on github, Install by this format:
+> pip install  "git+https://github.com/nearai/torchfold"
+
+- install easyDict ( on piPy) by
+> pip install pypi-install  
+> pip install  easydict                          
+
+
+> change "no_cuda": False to "no_cuda": True in util.py and 
+also in notebook.
+
+
+> I changed alot in the original code. Don't mix them only if you should.  

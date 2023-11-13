@@ -15,8 +15,10 @@ The ```.laz``` files are not readable until you convert them via Cloud Compare s
 
 
 (recommended) If you convert it to a ```.pcd``` file format, just read and follow [this notebook](pcd_read_write.ipynb).
+There are some options for saving the read ```.laz``` or ```.las``` data into ```.pcd``` in softwares like Cloud Compare. Just simply save them with ```.pcd``` file format.
 
-
+**Notice**: If you are not fine with Cloud Compare, I added some codes for converting/reading laz data in jupyter notebook with python codes. But you need to install some tools prior to using them as explaind in [this notebook](lidar-las-reading.ipynb).
+ 
 ## Voxelization
 For voxelization I recommend using 
 [this notebook](pcd_read_write.ipynb) and save the output file with ```.mat``` file extention (if you are using the mentioned notebook, saving to ```.mat``` is provided right in the last cells of the notebook). Let's say the name of the file now is ```output.mat```.

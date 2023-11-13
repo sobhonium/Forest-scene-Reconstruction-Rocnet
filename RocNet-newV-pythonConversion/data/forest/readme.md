@@ -1,0 +1,3 @@
+Nov 2023
+I used to use the .mat (3 files for each sample) and now only one sample is needed to do the equal task.
+The intention is to use python directly without using Matlab for loading, building, or reconstructions. Just remember to add samples with indeces like 1.xyz, 2.xyz from now on...
